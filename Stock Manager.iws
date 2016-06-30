@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1334381b-1026-45cc-929f-3ead0aa6db78" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/StockMovements/list.html" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/views/Orders/orderCreated.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Stock Manager.iml" afterPath="$PROJECT_DIR$/Stock Manager.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Stock Manager.ipr" afterPath="$PROJECT_DIR$/Stock Manager.ipr" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Stock Manager.iws" afterPath="$PROJECT_DIR$/Stock Manager.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/Orders.java" afterPath="$PROJECT_DIR$/app/controllers/Orders.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/StockMovements.java" afterPath="$PROJECT_DIR$/app/controllers/StockMovements.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/Order.java" afterPath="$PROJECT_DIR$/app/models/Order.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/StockMovement.java" afterPath="$PROJECT_DIR$/app/models/StockMovement.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/services/StockManager.java" afterPath="$PROJECT_DIR$/app/services/StockManager.java" />
     </list>
     <ignored path="Stock Manager.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -70,11 +62,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="401">
               <caret line="34" column="83" selection-start-line="34" selection-start-column="83" selection-end-line="34" selection-end-column="83" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="125">
+              <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -149,6 +151,7 @@
         <option value="$PROJECT_DIR$/app/models/StockMovement.java" />
         <option value="$PROJECT_DIR$/app/models/Order.java" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -992,12 +995,12 @@
       <workItem from="1466518027874" duration="10427000" />
       <workItem from="1467045446832" duration="5308000" />
       <workItem from="1467123026020" duration="55385000" />
-      <workItem from="1467304653813" duration="5895000" />
+      <workItem from="1467304653813" duration="6060000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77015000" />
+    <option name="totallyTimeSpent" value="77180000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-11" y="-11" width="1942" height="1042" extended-state="6" />
@@ -1083,17 +1086,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/models/Order.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#701#702#0" expanded="true" />
-            <element signature="e#747#748#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/models/OrderTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="275">
@@ -1456,6 +1448,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="401">
           <caret line="34" column="83" selection-start-line="34" selection-start-column="83" selection-end-line="34" selection-end-column="83" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="5" column="16" selection-start-line="5" selection-start-column="16" selection-end-line="5" selection-end-column="16" />
           <folding />
         </state>
       </provider>
