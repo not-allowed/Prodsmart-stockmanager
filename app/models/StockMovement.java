@@ -1,6 +1,5 @@
 package models;
 
-import controllers.CRUD;
 import play.db.jpa.Model;
 
 import javax.persistence.Entity;
@@ -17,7 +16,7 @@ public class StockMovement extends Model {
     public int quantity;
 
     @Hidden
-    public int quantityLeft;
+    public int quantityRemaining;
 
     @Hidden
     public Date creationDate;
@@ -28,17 +27,17 @@ public class StockMovement extends Model {
 
     public StockMovement(Item item, int quantity) {
         this.item = item;
-        setQuantity(quantity);
+        this.setQuantity(quantity);
         this.creationDate = new Date();
     }
 
     public void setQuantity(int quantity){
         this.quantity = quantity;
-        this.quantityLeft = quantity;
+        quantityRemaining = quantity;
     }
 
     public static StockMovement getNextWithAvailableItems(Item i){
-        List<StockMovement> stocks = StockMovement.find("item_id = ? and quantityLeft > 0 order by creationDate", i.id).fetch(1);
+        List<StockMovement> stocks = StockMovement.find("item_id = ? and quantityRemaining > 0 order by creationDate", i.id).fetch(1);
         return (stocks.isEmpty()) ? null : stocks.get(0);
     }
 
@@ -46,24 +45,24 @@ public class StockMovement extends Model {
      * This method receives a requestedQuantity of items, and returns how much quantity
      * this stock can fulfill.
      *
-     * Also remove provided stock from quantityLeft
+     * Also remove provided stock from quantityRemaining
      *
      * @param requestedQuantity
      * @return int
      */
     public int pickItems(int requestedQuantity){
-        int nrOfItemsFromThisStock = quantityLeft;
+        int nrOfItemsFromThisStock = quantityRemaining;
 
-        if(quantityLeft >= requestedQuantity){
+        if(quantityRemaining >= requestedQuantity){
             nrOfItemsFromThisStock = requestedQuantity;
         }
 
-        quantityLeft -= nrOfItemsFromThisStock;
+        quantityRemaining -= nrOfItemsFromThisStock;
         return nrOfItemsFromThisStock;
     }
 
     public boolean isExhausted(){
-        return !(this.quantityLeft > 0);
+        return !(this.quantityRemaining > 0);
     }
 
 }

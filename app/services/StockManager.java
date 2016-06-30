@@ -1,9 +1,11 @@
 package services;
 
 import models.Order;
-import models.Item;
 import models.StockMovement;
 import models.StockOrderMovement;
+import org.apache.commons.mail.EmailException;
+import org.apache.commons.mail.SimpleEmail;
+import play.libs.Mail;
 
 public class StockManager {
 
@@ -19,7 +21,7 @@ public class StockManager {
         }
 
         if(order.isFulfilled()) {
-            //Send mail
+            sendMail(order);
         }
 
         return order.quantityMissing;
@@ -32,11 +34,11 @@ public class StockManager {
             handleStockOrderMovement(stock, order);
 
             if(order.isFulfilled()) {
-                //Send mail
+                sendMail(order);
             }
         }
 
-        return stock.quantityLeft;
+        return stock.quantityRemaining;
     }
 
     protected static void handleStockOrderMovement(StockMovement stock, Order order){
@@ -50,5 +52,19 @@ public class StockManager {
         //create an entry to log this movement from stock to order
         StockOrderMovement som = new StockOrderMovement(stock, order, pickedItems);
         som.save();
+    }
+
+    public static void sendMail(Order order){
+        try {
+            SimpleEmail email = new SimpleEmail();
+            email.setFrom("engenheironot@gmail.com");
+            email.addTo(order.user.email);
+            email.setSubject("Your order has been fulfilled.");
+            email.setMsg("Your order of " + order.quantity + " " + order.item.name + " has been fulfilled.");
+            Mail.send(email);
+        }
+        catch (EmailException e) {
+                e.printStackTrace();
+            }
     }
 }

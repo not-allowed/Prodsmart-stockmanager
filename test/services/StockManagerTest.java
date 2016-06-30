@@ -55,8 +55,8 @@ public class StockManagerTest extends UnitTest {
 
         /*assertEquals(1, o.quantityMissing);
         assertEquals(0, o2.quantityMissing);
-        assertEquals(0, smov.quantityLeft);
-        assertEquals(9, smov2.quantityLeft);
+        assertEquals(0, smov.quantityRemaining);
+        assertEquals(9, smov2.quantityRemaining);
 
 */
         assertEquals(1, 1);

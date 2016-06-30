@@ -27,7 +27,7 @@ public class StockMovements extends CRUD {
             }
         }*/
         object._save();
-        //StockManager.handle((StockMovement) object);
+        StockManager.handle((StockMovement) object);
         flash.success(play.i18n.Messages.get("crud.created", type.modelName));
         if (params.get("_save") != null) {
             redirect(request.controller + ".list");
