@@ -11,31 +11,43 @@ public class StockManager {
         //por aqui o mail?
     }
 
-    public int handle(Order order){
+    public static int handle(Order order){
         StockMovement stock;
-        while(order.quantityMissing > 0
+        while(!order.isFulfilled()
                 && (stock = StockMovement.getNextWithAvailableItems(order.item)) != null){
-            addStockOrderMovement(stock, order);
+            handleStockOrderMovement(stock, order);
         }
+
+        if(order.isFulfilled()) {
+            //Send mail
+        }
+
         return order.quantityMissing;
     }
 
-    public int handle(StockMovement stock){
+    public static int handle(StockMovement stock){
         Order order;
-        while(stock.quantityLeft > 0 
+        while(!stock.isExhausted()
                 && (order = Order.getNextToBeFulfilledForItem(stock.item)) != null){
-            createStockOrderMovement(stock, order);
+            handleStockOrderMovement(stock, order);
+
+            if(order.isFulfilled()) {
+                //Send mail
+            }
         }
-        return stock.quantity;
+
+        return stock.quantityLeft;
     }
 
-    protected void createStockOrderMovement(StockMovement stock, Order order){
+    protected static void handleStockOrderMovement(StockMovement stock, Order order){
+        //pick as many items as possible from this stock
         int pickedItems = stock.pickItems(order.quantityMissing);
         order.addItems(pickedItems);
 
         stock.save();
         order.save();
 
+        //create an entry to log this movement from stock to order
         StockOrderMovement som = new StockOrderMovement(stock, order, pickedItems);
         som.save();
     }

@@ -1,27 +1,40 @@
 package models;
 
+import controllers.CRUD;
 import play.db.jpa.Model;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import java.util.List;
 import java.util.Date;
+import controllers.CRUD.Hidden;
 
 @Entity
 public class StockMovement extends Model {
 
     @ManyToOne
     public Item item;
-
     public int quantity;
+
+    @Hidden
     public int quantityLeft;
+
+    @Hidden
     public Date creationDate;
+
+    public StockMovement() {
+        this.creationDate = new Date();
+    }
 
     public StockMovement(Item item, int quantity) {
         this.item = item;
+        setQuantity(quantity);
+        this.creationDate = new Date();
+    }
+
+    public void setQuantity(int quantity){
         this.quantity = quantity;
         this.quantityLeft = quantity;
-        this.creationDate = new Date();
     }
 
     public static StockMovement getNextWithAvailableItems(Item i){
@@ -48,7 +61,6 @@ public class StockMovement extends Model {
         quantityLeft -= nrOfItemsFromThisStock;
         return nrOfItemsFromThisStock;
     }
-
 
     public boolean isExhausted(){
         return !(this.quantityLeft > 0);
