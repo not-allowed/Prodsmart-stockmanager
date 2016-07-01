@@ -7,7 +7,7 @@ import java.util.*;
 
 import models.*;
 
-public class Application extends Controller {
+public class ApplicationNotUsed extends Controller {
 
     public static void index() {
         render();

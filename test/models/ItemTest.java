@@ -8,10 +8,10 @@ import play.test.UnitTest;
 
 public class ItemTest extends UnitTest {
 
-/*    @Before
+    @Before
     public void setup() {
         Fixtures.deleteDatabase();
-    }*/
+    }
 
     @Test
     public void createAndRetrieveItem() {

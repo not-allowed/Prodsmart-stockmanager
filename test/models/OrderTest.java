@@ -30,9 +30,6 @@ public class OrderTest extends UnitTest {
 
         // Test
         assertNotNull(orders);
-
-        Order firstOrder = orders.get(0);
-        System.out.println(firstOrder);
     }
 
 }

@@ -7,10 +7,10 @@ import models.*;
 
 public class UserTest extends UnitTest {
 
-  /*  @Before
+    @Before
     public void setup() {
         Fixtures.deleteDatabase();
-    }*/
+    }
 
     @Test
     public void createAndRetrieveUser() {

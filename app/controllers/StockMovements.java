@@ -10,6 +10,7 @@ import java.lang.reflect.Constructor;
 
 public class StockMovements extends CRUD {
 
+    // Overriding this method to intercept save and for handle by StockManager
     public static void create() throws Exception {
         ObjectType type = ObjectType.get(getControllerClass());
         notFoundIfNull(type);
@@ -17,15 +18,6 @@ public class StockMovements extends CRUD {
         constructor.setAccessible(true);
         Model object = (Model) constructor.newInstance();
         Binder.bindBean(params.getRootParamNode(), "object", object);
-        /*validation.valid(object);
-        if (validation.hasErrors()) {
-            renderArgs.put("error", play.i18n.Messages.get("crud.hasErrors"));
-            try {
-                render(request.controller.replace(".", "/") + "/blank.html", type, object);
-            } catch (TemplateNotFoundException e) {
-                render("CRUD/blank.html", type, object);
-            }
-        }*/
         object._save();
         StockManager.handle((StockMovement) object);
         flash.success(play.i18n.Messages.get("crud.created", type.modelName));
@@ -37,5 +29,4 @@ public class StockMovements extends CRUD {
         }
         redirect(request.controller + ".show", object._key());
     }
-
 }

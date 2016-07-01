@@ -17,5 +17,4 @@ public class Item extends Model {
     public String toString() {
         return name;
     }
-
 }
